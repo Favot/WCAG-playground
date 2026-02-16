@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-native';
-import { Button } from './button';
-import { Text } from '@/components/ui/text';
+import { Text } from '@/components/ui/atoms/text/text'
+import type { Meta, StoryObj } from '@storybook/react-native'
+import { Button } from './button'
 
 const meta: Meta<typeof Button> = {
   title: 'UI/Button',
@@ -19,7 +19,7 @@ const meta: Meta<typeof Button> = {
       },
     },
   },
-};
+}
 
 const Template: StoryObj<typeof Button> = {
   render: (args) => {
@@ -28,18 +28,18 @@ const Template: StoryObj<typeof Button> = {
         <Text>{args.children}</Text>
       ) : (
         args.children ?? <Text>Button</Text>
-      );
+      )
 
-    return <Button {...args}>{children}</Button>;
+    return <Button {...args}>{children}</Button>
   },
-};
+}
 
-export default meta;
+export default meta
 
 export const Default = {
   ...Template,
   args: {},
-};
+}
 
 export const Ghost = {
   ...Template,
@@ -47,4 +47,4 @@ export const Ghost = {
     variant: 'ghost',
     children: 'Ghost button',
   },
-};
+}
