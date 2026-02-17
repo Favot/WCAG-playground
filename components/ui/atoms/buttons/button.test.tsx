@@ -49,7 +49,33 @@ describe('Button Test', () => {
     it('passes the accessibility engine matcher', () => {
       const { getByRole } = renderComponent({}, <Text>Primary action</Text>);
 
-      expect(getByRole('button', { name: 'Primary action' })).toBeAccessible();
+      expect(getByRole('button', { name: 'Primary action' })).toBeAccessible({
+        rules: [
+          'pressable-accessible-required',
+          'pressable-label-required',
+          'pressable-role-required',
+          'disabled-state-required',
+          'link-role-required',
+          'no-empty-text',
+          'checked-state-required',
+        ],
+      });
+    });
+
+    it('passes the accessibility engine matcher', () => {
+      const { getByRole, getByText } = renderNative(<Text>Hello</Text>);
+
+      expect(getByText('Hello')).toBeAccessible({
+        rules: [
+          'pressable-accessible-required',
+          'pressable-label-required',
+          'pressable-role-required',
+          'disabled-state-required',
+          'link-role-required',
+          'no-empty-text',
+          'checked-state-required',
+        ],
+      });
     });
   });
 });
