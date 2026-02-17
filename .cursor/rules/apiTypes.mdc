@@ -1,0 +1,76 @@
+---
+description: API types organization and type derivation from OpenAPI spec
+globs:
+  - "gateway/implementation/apiTypes/**/*"
+---
+
+# API Types Rules
+
+## Type Derivation from OpenAPI Spec
+
+**CRITICAL**: All API types MUST be derived from `api.gen.ts`, specifically from the `paths` type. Never create custom types manually.
+
+### Required Pattern
+
+All API types must use the following pattern:
+
+```typescript
+import type { paths } from "./api.gen";
+
+// For request body types
+export type ServiceRequest = NonNullable<
+  paths["/api/path"]["method"]["requestBody"]
+>["content"]["application/json"];
+
+// For response types
+export type ServiceResponse = 
+  paths["/api/path"]["method"]["responses"]["200"]["content"]["application/json"];
+```
+
+### Path Format
+
+- Use the exact path strings from `api.gen.ts` `paths` interface
+- Path parameters use `{param}` syntax (e.g., `/device/{id}`)
+- Do NOT add prefixes like `/api/v1/` unless they exist in `api.gen.ts`
+- Do NOT use placeholder paths that don't exist in `api.gen.ts`
+
+### Type Extraction Examples
+
+```typescript
+// GET request response
+export type GetDevicesResponse = 
+  paths["/devices"]["get"]["responses"]["200"]["content"]["application/json"];
+
+// POST request body
+export type CreateDeviceRequest = NonNullable<
+  paths["/device"]["post"]["requestBody"]
+>["content"]["application/json"];
+
+// POST request response
+export type CreateDeviceResponse = 
+  paths["/device"]["post"]["responses"]["201"]["content"]["application/json"];
+
+// Path with parameters
+export type GetDeviceResponse = 
+  paths["/device/{serial}"]["get"]["responses"]["200"]["content"]["application/json"];
+```
+
+### Error Handling
+
+- If a path doesn't exist in `api.gen.ts`, it means the OpenAPI spec needs to be updated
+- Do NOT create fallback types or manual type definitions
+- Do NOT use `@ts-expect-error` or `@ts-ignore` to bypass type checking
+- When the API contract changes, regenerate `api.gen.ts` and types will automatically update
+
+### File Organization
+
+- One file per API domain (e.g., `deviceApi.ts`, `authApi.ts`)
+- Export all types from `apiTypes/index.ts`
+- Keep types focused on API contract, not domain transformations
+
+### Benefits
+
+- Automatic type safety when API contract changes
+- Single source of truth (OpenAPI spec)
+- TypeScript will catch breaking changes at compile time
+- No manual type maintenance required

@@ -1,0 +1,58 @@
+---
+description: State management patterns with React Context, TanStack Query, and Zustand
+globs:
+  - "context/**/*"
+  - "**/hooks/**/*"
+---
+
+# State Management Rules
+
+## State Management Patterns
+
+Project uses multiple state management approaches:
+
+- React Context for global app state
+- TanStack Query for server state
+- Zustand for client state (when needed)
+- Local state with useState for component-specific state
+
+## React Context Pattern
+
+- Context providers in `context/` directory
+- Providers wrap application in root layout
+- Custom hooks expose context values (e.g., `useSession()`)
+- Context values include state and actions
+- Error handling within context providers
+
+## TanStack Query Usage
+
+- Use `useQuery` for data fetching
+- Use `useMutation` for data mutations
+- Mutations handle success/error callbacks
+- Query client provided at root level
+- Cache management handled automatically
+
+## Mutation Pattern
+
+- Use `useMutation` hook for all async operations (API calls, permissions, etc.)
+- Move all async logic into `mutationFn` (including permission requests, location fetching, etc.)
+- Use `isPending` from mutation for loading state (NOT manual `useState`)
+- Handle success with `onSuccess` callback
+- Handle errors with `onError` callback
+- Show toast notifications in callbacks
+- Call `mutate()` to trigger the mutation
+
+## Context + TanStack Query Pattern
+
+- Context providers use TanStack Query internally
+- Context exposes simplified API to components
+- Loading states aggregated in context
+- Errors handled and exposed via context
+- Example: `SessionProvider` uses mutations for auth operations
+
+## Custom Hooks Pattern
+
+- Create custom hooks for complex state logic
+- Hooks encapsulate TanStack Query usage
+- Hooks return state and actions
+- Example: `useSessionStorageState()` manages session persistence

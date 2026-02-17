@@ -1,0 +1,77 @@
+---
+description: General project rules, conventions, and tech stack
+globs:
+  - "**/*"
+---
+
+# General Project Rules
+
+## Tech Stack
+
+- React Native with Expo Router (file-based routing)
+- TypeScript (strict mode)
+- NativeWind v4 (Tailwind CSS for React Native)
+- TanStack Query v5 (data fetching)
+- TanStack Form v1 (form handling)
+- Zustand (state management)
+- i18next (internationalization)
+- Biome (linting/formatting)
+- Jest (testing)
+- Storybook (component documentation)
+
+## Directory Structure
+
+- `app/` - Expo Router pages (file-based routing)
+- `components/` - UI components (atoms/molecules/organisms/templates)
+- `domain/` - Business logic, service interfaces, types
+- `gateway/` - External interface implementations (REST, storage, etc.)
+- `context/` - React Context providers
+- `i18n/` - Translation files
+- `lib/` - Shared utilities and helpers
+
+## File Naming Conventions
+
+- Components: PascalCase (e.g., `LoginForm.tsx`)
+- Services: camelCase (e.g., `authService.ts`)
+- Types: PascalCase (e.g., `User.ts`)
+- Tests: `.test.ts` or `.test.tsx`
+- Stories: `.stories.tsx`
+- Index files: `index.ts` for exports
+
+## Import/Export Patterns
+
+- Use path aliases: `~/` for root directory
+- Export from domain via `domain/index.ts`
+- Export components via `index.ts` in component directories
+- Prefer named exports over default exports
+
+## Common Utilities
+
+- `lib/utils.ts` - General utilities
+- `lib/colors.ts` - Color system
+- `lib/featureFlag.ts` - Feature flag helpers
+- `lib/useColorScheme.tsx` - Theme detection
+
+## Development Workflow
+
+- Run `npm run lint` before committing
+- Run `npm run test:watch` for development
+- Run `npm run test:ci` for CI
+- Generate API types: `npm run generate:api-types`
+- Storybook: `npm run storybook-generate`
+
+## Backward Compatibility
+
+- **No backward compatibility required** - The app is not in production, so breaking changes are acceptable when updating features or APIs
+- Focus on implementing the best solution rather than maintaining compatibility with existing code
+
+## Key Dependencies Usage
+
+- React Native: Core framework
+- Expo Router: Navigation and routing
+- NativeWind: Styling with Tailwind classes
+- TanStack Query: Server state management
+- TanStack Form: Form state and validation
+- Zustand: Client state management
+- i18next: Translation system
+- Zod: Schema validation
