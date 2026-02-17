@@ -17,7 +17,7 @@ it("throws if 'accessibilityRole' prop not defined", () => {
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).toThrow(rule.help.problem);
 });
 
 it("throws if 'accessibilityRole' prop has a value other than 'button', 'link', 'imagebutton', 'radio', or 'tab'", () => {
@@ -27,7 +27,7 @@ it("throws if 'accessibilityRole' prop has a value other than 'button', 'link', 
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).toThrow(rule.help.problem);
 });
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'button'", () => {
@@ -37,7 +37,7 @@ it("doesn't throw if 'accessibilityRole' prop has the value 'button'", () => {
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).not.toThrow(rule.help.problem);
 });
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'link'", () => {
@@ -47,7 +47,7 @@ it("doesn't throw if 'accessibilityRole' prop has the value 'link'", () => {
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).not.toThrow(rule.help.problem);
 });
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'imagebutton'", () => {
@@ -57,7 +57,7 @@ it("doesn't throw if 'accessibilityRole' prop has the value 'imagebutton'", () =
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).not.toThrow(rule.help.problem);
 });
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'radio'", () => {
@@ -67,7 +67,7 @@ it("doesn't throw if 'accessibilityRole' prop has the value 'radio'", () => {
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).not.toThrow(rule.help.problem);
 });
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'tab'", () => {
@@ -77,5 +77,5 @@ it("doesn't throw if 'accessibilityRole' prop has the value 'tab'", () => {
     </TouchableOpacity>
   );
 
-  expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+  expect(() => run(<Button />)).not.toThrow(rule.help.problem);
 });

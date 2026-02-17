@@ -1,4 +1,4 @@
-import { render as renderNative } from '@testing-library/react-native';
+import { cleanup, render as renderNative } from '@testing-library/react-native';
 import React, { PropsWithChildren } from 'react';
 import {
   FlatList,
@@ -56,7 +56,15 @@ const Tree = () => {
 };
 
 describe('should recognize built-in components', () => {
-  const { UNSAFE_root } = renderNative(<Tree />);
+  let UNSAFE_root: ReturnType<typeof renderNative>['UNSAFE_root'];
+
+  beforeEach(() => {
+    ({ UNSAFE_root } = renderNative(<Tree />));
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
 
   it("should return 'Text' for <Text />", () => {
     const textNode = UNSAFE_root.findByProps({ testID: 'text' });
@@ -88,9 +96,9 @@ describe('should recognize built-in components', () => {
     expect(getComponentName(pressableNode)).toBe('Pressable');
   });
 
-  it("should return 'RCTSwitch' for <Switch />", () => {
+  it("should return 'Switch' for <Switch />", () => {
     const switchNode = UNSAFE_root.findByProps({ testID: 'switch' });
-    expect(getComponentName(switchNode)).toBe('RCTSwitch');
+    expect(getComponentName(switchNode)).toBe('Switch');
   });
 
   it("should return 'Modal' for <Modal />", () => {
@@ -113,9 +121,9 @@ describe('should recognize built-in components', () => {
     expect(getComponentName(textInputNode)).toBe('TextInput');
   });
 
-  it("should return 'RCTSafeAreaView' for <SafeAreaView />", () => {
+  it("should return 'RNCSafeAreaView' for <SafeAreaView />", () => {
     const safeAreaNode = UNSAFE_root.findByProps({ testID: 'safe_area_view' });
-    expect(getComponentName(safeAreaNode)).toBe('RCTSafeAreaView');
+    expect(getComponentName(safeAreaNode)).toBe('RNCSafeAreaView');
   });
 
   it("should return 'KeyboardAvoidingView' for <KeyboardAvoidingView />", () => {
@@ -144,12 +152,12 @@ it("should return 'Unknown' for components without defined names", () => {
 
   const viewNode = UNSAFE_root.findByProps({ testID: 'view' });
 
-  // Contrived example where a component doesn't have a name or displayName
-  // Occurs in some internal components.
+  // Simulate a component without a name or displayName by cloning the type
+  // (native component function names are read-only in Node).
+  const anonymousComponent = {
+    ...viewNode,
+    type: { ...viewNode.type, name: null, displayName: null },
+  } as typeof viewNode;
 
-  viewNode.type.name = null;
-
-  viewNode.type.displayName = null;
-
-  expect(getComponentName(viewNode)).toBe('Unknown');
+  expect(getComponentName(anonymousComponent)).toBe('Unknown');
 });

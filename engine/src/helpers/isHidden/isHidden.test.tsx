@@ -1,7 +1,7 @@
 import React from 'react';
 import { render as renderNative } from '@testing-library/react-native';
 import { View } from 'react-native';
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../../types/ReactTestInstance';
 import isHidden from './isHidden';
 
 it('should identify a node with accessibilityElementsHidden prop', () => {

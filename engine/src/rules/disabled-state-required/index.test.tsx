@@ -18,7 +18,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).not.toThrow(rule.help.problem);
     });
 
     it("throws if 'accessibilityState' prop equals empty object'", () => {
@@ -28,7 +28,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).not.toThrow(rule.help.problem);
     });
 
     it("throws if 'accessibilityState' prop equals an object that doesn't contain 'disabled' key", () => {
@@ -38,7 +38,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).not.toThrow(rule.help.problem);
     });
   });
 
@@ -50,7 +50,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).toThrow(rule.help.problem);
     });
 
     it("throws if 'accessibilityState' prop equals empty object'", () => {
@@ -60,7 +60,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).toThrow(rule.help.problem);
     });
 
     it("throws if 'accessibilityState' prop equals an object that doesn't contain 'disabled' key", () => {
@@ -70,7 +70,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).toThrow(rule.help.problem);
     });
 
     it("doesn't throw if 'accessibilityState' equals an object that contains the 'disabled = true' key-value pair", () => {
@@ -80,7 +80,7 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).not.toThrow(rule.help.problem);
     });
 
     it("doesn't throw if 'accessibilityState' equals an object that contains the 'disabled = false' key-value pair", () => {
@@ -90,38 +90,38 @@ describe('buttons', () => {
         </TouchableOpacity>
       );
 
-      expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Button />)).not.toThrow(rule.help.problem);
     });
   });
 });
 
 describe('sliders', () => {
-  describe('if disabeld prop is defined', () => {
-    it("throws if 'accessibilityState' prop not defined", () => {
-      const Wrapper = () => <Slider disabled={false} />;
-      expect(() => run(<Wrapper />)).toThrowError(rule.help.problem);
+  describe('if disabled prop is defined', () => {
+    it("doesn't throw if 'accessibilityState' prop not defined", () => {
+      const Wrapper = () => <Slider disabled />;
+      expect(() => run(<Wrapper />)).not.toThrow(rule.help.problem);
     });
 
-    it("throws if 'accessibilityState' prop equals empty object'", () => {
-      const Wrapper = () => <Slider disabled={false} accessibilityState={{}} />;
-      expect(() => run(<Wrapper />)).toThrowError(rule.help.problem);
+    it("doesn't throw if 'accessibilityState' prop equals empty object'", () => {
+      const Wrapper = () => <Slider disabled accessibilityState={{}} />;
+      expect(() => run(<Wrapper />)).not.toThrow(rule.help.problem);
     });
 
-    it("throws if 'accessibilityState' prop equals an object that doesn't contain 'disabled' key", () => {
-      const Wrapper = () => <Slider disabled={false} accessibilityState={{ expanded: true }} />;
+    it("doesn't throw if 'accessibilityState' prop equals an object that doesn't contain 'disabled' key", () => {
+      const Wrapper = () => <Slider disabled accessibilityState={{ expanded: true }} />;
 
-      expect(() => run(<Wrapper />)).toThrowError(rule.help.problem);
+      expect(() => run(<Wrapper />)).not.toThrow(rule.help.problem);
     });
 
     it("doesn't throw if 'accessibilityState' equals an object that contains the 'disabled = true' key-value pair", () => {
-      const Wrapper = () => <Slider disabled={true} accessibilityState={{ disabled: true }} />;
+      const Wrapper = () => <Slider disabled accessibilityState={{ disabled: true }} />;
 
-      expect(() => run(<Wrapper />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Wrapper />)).not.toThrow(rule.help.problem);
     });
 
     it("doesn't throw if 'accessibilityState' equals an object that contains the 'disabled = false' key-value pair", () => {
       const Wrapper = () => <Slider disabled={false} accessibilityState={{ disabled: false }} />;
-      expect(() => run(<Wrapper />)).not.toThrowError(rule.help.problem);
+      expect(() => run(<Wrapper />)).not.toThrow(rule.help.problem);
     });
   });
 });

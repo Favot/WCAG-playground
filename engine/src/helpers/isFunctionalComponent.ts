@@ -1,4 +1,4 @@
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../types/ReactTestInstance';
 
 const isFunctionalComponent = (component: ReactTestInstance): boolean => {
   return typeof component.type === 'function';

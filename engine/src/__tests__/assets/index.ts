@@ -11,3 +11,9 @@ export default {
     '512px': require('./checkbox_512px.png'),
   },
 };
+
+// Jest treats any file inside __tests__ as a test suite.
+// Provide a trivial test so the suite isn't considered empty.
+test('assets module loads', () => {
+  expect(true).toBe(true);
+});

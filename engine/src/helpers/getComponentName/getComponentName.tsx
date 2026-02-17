@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../../types/ReactTestInstance';
 
 const blacklist = ['String', 'Component', 'Object'];
 
@@ -21,7 +21,7 @@ const getComponentName = (component: ReactTestInstance): string => {
   let name: string | undefined;
   name = extractNameFromType(component);
 
-  const { children } = component;
+  const children = Array.isArray(component.children) ? component.children : [];
   if (!name && children.length > 0 && typeof children[0] !== 'string') {
     // Some components are wrapped in Animated or Virtualized nodes,
     // and the main component is the child, not the wrapper,

@@ -1,7 +1,8 @@
-import React, { PropsWithChildren } from 'react';
 import { render as renderNative } from '@testing-library/react-native';
-import { View, Text, Pressable, SafeAreaView, ViewProps } from 'react-native';
+import React, { PropsWithChildren } from 'react';
+import { Pressable, Text, View, ViewProps } from 'react-native';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
 import getPathToComponent from './getPathToComponent';
 
 it('should handle a View node with no parents', () => {

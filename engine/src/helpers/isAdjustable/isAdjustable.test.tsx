@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import { render as renderNative } from '@testing-library/react-native';
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../../types/ReactTestInstance';
 import CommunitySlider from '@react-native-community/slider';
 import isAdjustable from './isAdjustable';
 

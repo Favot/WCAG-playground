@@ -28,7 +28,7 @@ describe('given a pressable component with an accessibility role of "checkbox"',
           </TouchableOpacity>
         );
 
-        expect(() => run(<Checkbox />)).toThrowError(rule.help.problem);
+        expect(() => run(<Checkbox />)).toThrow(rule.help.problem);
       }
     );
 
@@ -51,7 +51,7 @@ describe('given a pressable component with an accessibility role of "checkbox"',
           </TouchableOpacity>
         );
 
-        expect(() => run(<Checkbox />)).toThrowError(rule.help.problem);
+        expect(() => run(<Checkbox />)).toThrow(rule.help.problem);
       }
     );
   });
@@ -74,7 +74,7 @@ describe('given a pressable component with an accessibility role of "checkbox"',
           </TouchableOpacity>
         );
 
-        expect(() => run(<Checkbox />)).not.toThrowError(rule.help.problem);
+        expect(() => run(<Checkbox />)).not.toThrow(rule.help.problem);
       }
     );
   });

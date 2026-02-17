@@ -19,7 +19,7 @@ it("throws if 'accessibilityRole' prop has a value other than 'adjustable'", () 
     <Slider minimumValue={1} maximumValue={10} accessibilityRole={'button'} />
   );
 
-  expect(() => run(<SliderWrapper />)).toThrowError(rule.help.problem);
+  expect(() => run(<SliderWrapper />)).toThrow(rule.help.problem);
 });
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'adjustable'", () => {
@@ -27,5 +27,5 @@ it("doesn't throw if 'accessibilityRole' prop has the value 'adjustable'", () =>
     <Slider minimumValue={1} maximumValue={10} accessibilityRole={'adjustable'} />
   );
 
-  expect(() => run(<SliderWrapper />)).not.toThrowError(rule.help.problem);
+  expect(() => run(<SliderWrapper />)).not.toThrow(rule.help.problem);
 });

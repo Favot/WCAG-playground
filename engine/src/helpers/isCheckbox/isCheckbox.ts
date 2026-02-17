@@ -1,8 +1,11 @@
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../../types/ReactTestInstance';
 import isPressable from '../isPressable';
 
 const isCheckbox = (node: ReactTestInstance) => {
-  return isPressable(node.type) && node.props.accessibilityRole === 'checkbox';
+  return (
+    node.props.accessibilityRole === 'checkbox' &&
+    (isPressable(node.type) || typeof node.type === 'string')
+  );
 
   // TODO:
   // type === community checkbox?

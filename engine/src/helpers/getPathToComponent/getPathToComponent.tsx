@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../../types/ReactTestInstance';
 import getComponentName from '../getComponentName/getComponentName';
 
 const shouldSkipComponent = (node: ReactTestInstance) => {

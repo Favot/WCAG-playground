@@ -18,7 +18,7 @@ describe('if element is not hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 
   it("doesn't throw if 'accessible' prop is defined and equal to true", () => {
@@ -28,7 +28,7 @@ describe('if element is not hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 
   it("throws if 'accessible' prop is defined and equal to false", () => {
@@ -38,7 +38,7 @@ describe('if element is not hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).toThrow(rule.help.problem);
   });
 });
 
@@ -55,7 +55,7 @@ describe('if element is hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 
   it("doesn't throw if 'accessible' prop is defined and equal to true", () => {
@@ -65,7 +65,7 @@ describe('if element is hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 
   it("doesn't throw if 'accessible' prop is defined and equal to false", () => {
@@ -75,6 +75,6 @@ describe('if element is hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 });

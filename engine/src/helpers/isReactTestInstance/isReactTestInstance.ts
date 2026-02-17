@@ -1,7 +1,7 @@
 import { render as renderNative } from '@testing-library/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import type { ReactTestInstance } from '../../types/ReactTestInstance';
 
 let testInstancePrototype: object | null = null;
 

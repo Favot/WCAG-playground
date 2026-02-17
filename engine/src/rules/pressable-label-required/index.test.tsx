@@ -11,7 +11,7 @@ const run = (component: React.ReactElement<any>) => {
 // To inspect these components, run the example app under "Rules -> Button Label"
 describe('if element is not hidden', () => {
   it('throws in the case of empty button', () => {
-    expect(() => run(<TouchableOpacity />)).toThrowError(rule.help.problem);
+    expect(() => run(<TouchableOpacity />)).toThrow(rule.help.problem);
   });
 
   it('throws if the button has empty text content', () => {
@@ -21,7 +21,7 @@ describe('if element is not hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).toThrow(rule.help.problem);
   });
 
   it('throws if the button only has non-text content', () => {
@@ -30,7 +30,7 @@ describe('if element is not hidden', () => {
         <Image source={TestAssets.heart['32px']} />
       </TouchableOpacity>
     );
-    expect(() => run(<Button />)).toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).toThrow(rule.help.problem);
   });
 
   it("doesn't throw if the button has text content", () => {
@@ -74,7 +74,7 @@ describe('if element is hidden', () => {
   };
 
   it("doesn't throw in the case of empty button", () => {
-    expect(() => run(<TouchableOpacity {...hidden} />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<TouchableOpacity {...hidden} />)).not.toThrow(rule.help.problem);
   });
 
   it("doesn't throw if the button has empty text content", () => {
@@ -84,7 +84,7 @@ describe('if element is hidden', () => {
       </TouchableOpacity>
     );
 
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 
   it("doesn't throw if the button only has non-text content", () => {
@@ -93,7 +93,7 @@ describe('if element is hidden', () => {
         <Image source={TestAssets.heart['32px']} />
       </TouchableOpacity>
     );
-    expect(() => run(<Button />)).not.toThrowError(rule.help.problem);
+    expect(() => run(<Button />)).not.toThrow(rule.help.problem);
   });
 
   it("doesn't throw if the button has text content", () => {
