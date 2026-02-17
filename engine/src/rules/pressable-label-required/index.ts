@@ -1,7 +1,7 @@
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
-import type { Rule } from '../../types';
-import { isPressable } from '../../helpers';
 import { Text } from 'react-native';
+import { isPressable } from '../../helpers';
+import type { Rule } from '../../types';
+import { ReactTestInstance } from '../../types/ReactTestInstance';
 
 const rule: Rule = {
   id: 'pressable-label-required',
@@ -18,8 +18,7 @@ const rule: Rule = {
   help: {
     problem:
       "This pressable has no text content, so an accessibility label can't be automatically inferred",
-    solution:
-      "Place a text component in the button or define an 'accessibilityLabel' prop",
+    solution: "Place a text component in the button or define an 'accessibilityLabel' prop",
     link: '',
   },
 };

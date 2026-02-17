@@ -1,5 +1,5 @@
-import React from 'react';
 import { render as renderNative } from '@testing-library/react-native';
+import React from 'react';
 import {
   Pressable,
   Text,
@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import { ReactTestInstance } from '../../types/ReactTestInstance';
 import isCheckbox from './isCheckbox';
 
 const pressableTestCases: Array<[string, React.ComponentType<any>]> = [
@@ -18,22 +18,19 @@ const pressableTestCases: Array<[string, React.ComponentType<any>]> = [
   ['Pressable', Pressable],
 ];
 
-test.each(pressableTestCases)(
-  `should identify a %p with a checkbox role`,
-  (_, Component) => {
-    const { UNSAFE_root } = renderNative(
-      <Component accessibilityRole="checkbox">
-        <Text>Checkbox</Text>
-      </Component>
-    );
+test.each(pressableTestCases)(`should identify a %p with a checkbox role`, (_, Component) => {
+  const { UNSAFE_root } = renderNative(
+    <Component accessibilityRole="checkbox">
+      <Text>Checkbox</Text>
+    </Component>
+  );
 
-    const matcher = (node: ReactTestInstance) => isCheckbox(node);
-    const matched = UNSAFE_root.findAll(matcher);
-    // console.log(UNSAFE_root.findAll((node) => node.props.accessibilityRole === 'checkbox').map((node) => node.type));
+  const matcher = (node: ReactTestInstance) => isCheckbox(node);
+  const matched = UNSAFE_root.findAll(matcher);
+  // console.log(UNSAFE_root.findAll((node) => node.props.accessibilityRole === 'checkbox').map((node) => node.type));
 
-    expect(matched.length).toBe(1);
-  }
-);
+  expect(matched.length).toBe(1);
+});
 
 test.each(pressableTestCases)(
   `should not identify a %p without a checkbox role`,

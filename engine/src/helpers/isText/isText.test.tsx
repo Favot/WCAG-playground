@@ -1,7 +1,7 @@
-import React from 'react';
 import { render as renderNative } from '@testing-library/react-native';
+import React from 'react';
 import { Text, View } from 'react-native';
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import { ReactTestInstance } from '../../types/ReactTestInstance';
 import isText from './isText';
 
 it('should identify an empty text node', () => {

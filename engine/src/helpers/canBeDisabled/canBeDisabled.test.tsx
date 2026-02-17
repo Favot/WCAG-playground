@@ -1,9 +1,9 @@
-import React from 'react';
-import { render as renderNative } from '@testing-library/react-native';
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
-import { TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider';
+import { render as renderNative } from '@testing-library/react-native';
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
 
+import { ReactTestInstance } from '../../types/ReactTestInstance';
 import canBeDisabled from './canBeDisabled';
 
 it('should identify buttons', () => {

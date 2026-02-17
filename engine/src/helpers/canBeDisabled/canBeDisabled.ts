@@ -1,4 +1,4 @@
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import { ReactTestInstance } from '../../types/ReactTestInstance';
 
 const canBeDisabled = (node: ReactTestInstance) => {
   const inTree = node.findAll(
@@ -12,8 +12,7 @@ const canBeDisabled = (node: ReactTestInstance) => {
   // actual disable-able component and should therefore be discarded.
 
   return (
-    (node.props.disabled !== undefined || node.props.enabled !== undefined) &&
-    inTree.length === 1
+    (node.props.disabled !== undefined || node.props.enabled !== undefined) && inTree.length === 1
   );
 };
 

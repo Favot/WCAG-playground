@@ -1,5 +1,5 @@
-import type { Rule } from '../../types';
 import { isPressable } from '../../helpers';
+import type { Rule } from '../../types';
 
 const rule: Rule = {
   id: 'pressable-accessible-required',

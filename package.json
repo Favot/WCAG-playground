@@ -1,7 +1,7 @@
 {
   "name": "WCAG-playground",
   "main": "expo-router/entry",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "expo start -c",
     "storybook": "EXPO_PUBLIC_STORYBOOK_ENABLED=true bun dev",
@@ -12,7 +12,8 @@
     "clean": "rm -rf .expo node_modules",
     "test": "jest",
     "test:watch": "jest --watch",
-    "tsc:watch": "tsc --noEmit"
+    "tsc:check": "tsc --noEmit",
+    "tsc:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.0",

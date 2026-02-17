@@ -1,4 +1,4 @@
-import type { ReactTestInstance } from 'src/types/ReactTestInstance';
+import { ReactTestInstance } from '../../types/ReactTestInstance';
 
 const isAdjustable = (node: ReactTestInstance) => {
   const slidersInTree = node.findAll((_node: ReactTestInstance) =>
