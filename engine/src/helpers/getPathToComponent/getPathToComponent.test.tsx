@@ -45,7 +45,7 @@ it('should handle a custom node with parents', () => {
   const node = UNSAFE_root.findByProps({ testID: 'test' });
 
   expect(getPathToComponent(node)).toEqual([
-    'RCTSafeAreaView',
+    'RNCSafeAreaView',
     'Pressable',
     'View', // Most touchables have an internal 'View'
     'Custom',
