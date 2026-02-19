@@ -1,6 +1,12 @@
 const { getDefaultConfig } = require('expo/metro-config');
 const { withNativeWind } = require('nativewind/metro');
+const { withStorybook } = require('@storybook/react-native/metro/withStorybook');
 
-const config = getDefaultConfig(__dirname);
+const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true';
 
-module.exports = withNativeWind(config, { input: './global.css', inlineRem: 16 });
+const baseConfig = withNativeWind(getDefaultConfig(__dirname), {
+  input: './global.css',
+  inlineRem: 16,
+});
+
+module.exports = storybookEnabled ? withStorybook(baseConfig) : baseConfig;

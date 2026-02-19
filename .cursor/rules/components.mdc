@@ -1,0 +1,47 @@
+---
+description: Component development, testing, Storybook, i18n, and styling patterns
+globs:
+  - "components/**/*"
+  - "components/**/*.test.tsx"
+  - "components/**/*.stories.tsx"
+  - "components/**/*Skeleton.tsx"
+---
+
+# Component Development Rules
+
+## Structure
+
+- Hierarchy: `atoms/` → `molecules/` → `organisms/` → `templates/`
+- Files: `ComponentName.tsx`, `ComponentName.test.tsx`, `ComponentName.stories.tsx`, `ComponentNameSkeleton.tsx` (for molecules and optionally organisms/templates)
+- Exports: ONLY at root (`atoms/index.ts`, `molecules/index.ts`, etc.)
+- Export format: `export * from "./dir/ComponentName"` (point to component files, NOT directories)
+- dir or subdir naming should be `camelCase`
+
+## Requirements
+
+- Test file for every component
+- Storybook stories for visual components
+- i18n for all user-facing text (use `useTranslation()`, keys: `feature.area.key`)
+- NativeWind classes (NO StyleSheet.create)
+- TanStack Form + Zod for forms
+- TanStack Query mutations for async (use `isPending`, NOT manual `useState` for loading)
+
+## Testing
+
+- Render function with `QueryClientProvider` + `I18nextProvider` at top of test file
+- Use `@testing-library/react-native` + `userEvent`
+- Test user interactions, not implementation
+
+## Storybook
+
+- Use `Meta` and `StoryObj` types
+- Hierarchy: `Atoms/button`, `Molecules/forms/loginForm`
+- Include `autodocs` tag
+
+## Skeletons
+
+- **Atoms**: Skeleton primitives live in `components/atoms/` (e.g. `skeleton/Skeleton.tsx`). Use them for all skeleton UI (no raw pulse/muted `View`s in molecules or organisms). NativeWind only; theme-aware (e.g. `bg-muted`, `animate-pulse`).
+- **Molecules**: Each molecule has a sibling file `ComponentNameSkeleton.tsx` in the same directory as the component (alongside `ComponentName.test.tsx` and `ComponentName.stories.tsx`). Molecule skeletons are built only from skeleton atoms (and layout components). Export molecule skeletons from `molecules/index.ts`.
+- **Organisms/Templates**: May have a `ComponentNameSkeleton.tsx` in the same folder; compose from molecule skeletons and skeleton atoms.
+- **Testing**: Loading-state tests can render the component's skeleton and assert it is visible (e.g. `getByTestId("...-skeleton")`).
+- **Storybook**: Skeleton stories under the same hierarchy (e.g. `Molecules/.../ComponentNameSkeleton`) for visual check.

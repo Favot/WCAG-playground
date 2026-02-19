@@ -60,6 +60,13 @@ To dive deeper into the technologies used:
 - [Nativewind Docs](https://www.nativewind.dev/)
 - [React Native Reusables](https://reactnativereusables.com)
 
+## Storybook
+
+- Start the normal Expo app with `bun dev` (or `npm run dev`, `yarn dev`, etc.).
+- To flip into Storybook, set `EXPO_PUBLIC_STORYBOOK_ENABLED=true` and run `bun dev`, or simply run the convenience script `bun storybook`.
+- Story files live beside their components under `components/**/*.stories.@(ts|tsx|js|jsx)` so you can keep UI and stories in sync.
+- After adding or renaming stories, run `bun storybook-generate` to refresh `.rnstorybook/storybook.requires.ts`.
+
 ## Deploy with EAS
 
 The easiest way to deploy your app is with [Expo Application Services (EAS)](https://expo.dev/eas).
