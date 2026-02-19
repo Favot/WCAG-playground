@@ -1,7 +1,7 @@
-import type React from 'react';
+import type { ReactTestInstanceNodeType } from '../../types/ReactTestInstance';
 import { Text } from 'react-native';
 
-const isText = (type: React.ElementType<any>) => {
+const isText = (type: ReactTestInstanceNodeType) => {
   return type === Text;
 };
 

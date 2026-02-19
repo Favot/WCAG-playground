@@ -43,8 +43,8 @@ const engine = (
       deep: true,
     });
 
-    // Check if the root of the tree should be tested as well
-    if (rule.matcher(testInstance)) {
+    // Check if the root of the tree should be tested as well (findAll may or may not include it)
+    if (rule.matcher(testInstance) && !matchedComponents.includes(testInstance)) {
       matchedComponents.push(testInstance);
     }
 
