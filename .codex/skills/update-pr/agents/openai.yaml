@@ -1,0 +1,3 @@
+interface:
+  display_name: "Update PR"
+  short_description: "Update GitHub PR title/body from branch changes"
