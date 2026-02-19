@@ -1,8 +1,9 @@
 import { render as renderNative } from '@testing-library/react-native';
+import { JSX } from 'react';
 import { Text } from 'react-native';
 import { Button, ButtonProps } from './button';
 
-const renderComponent = (props: Partial<ButtonProps> = {}, child = <Text>Primary action</Text>) => {
+const renderComponent = (props: Partial<ButtonProps> = {}, child?: JSX.Element) => {
   return renderNative(<Button {...props}>{child}</Button>);
 };
 
@@ -63,19 +64,9 @@ describe('Button Test', () => {
     });
 
     it('passes the accessibility engine matcher', () => {
-      const { getByRole, getByText } = renderNative(<Text>Hello</Text>);
+      const { getByTestId } = renderComponent({});
 
-      expect(getByText('Hello')).toBeAccessible({
-        rules: [
-          'pressable-accessible-required',
-          'pressable-label-required',
-          'pressable-role-required',
-          'disabled-state-required',
-          'link-role-required',
-          'no-empty-text',
-          'checked-state-required',
-        ],
-      });
+      expect(getByTestId('test-button')).toBeAccessible();
     });
   });
 });

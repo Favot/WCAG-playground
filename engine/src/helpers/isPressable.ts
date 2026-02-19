@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ReactTestInstanceNodeType } from '../types/ReactTestInstance';
 import {
   TouchableHighlight,
   TouchableOpacity,
@@ -7,7 +7,7 @@ import {
   Pressable,
 } from 'react-native';
 
-const isPressable = (type: React.ElementType<any>) => {
+const isPressable = (type: ReactTestInstanceNodeType) => {
   return (
     type === TouchableHighlight ||
     type === TouchableOpacity ||

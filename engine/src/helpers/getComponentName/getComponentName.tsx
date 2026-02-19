@@ -3,9 +3,7 @@ import type { ReactTestInstance } from '../../types/ReactTestInstance';
 
 const blacklist = ['String', 'Component', 'Object'];
 
-const extractNameFromType = (
-  component: ReactTestInstance
-): string | undefined => {
+const extractNameFromType = (component: ReactTestInstance): string | undefined => {
   const { displayName, name } = component.type;
 
   if (displayName && !blacklist.includes(displayName)) {

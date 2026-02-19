@@ -1,0 +1,3 @@
+interface:
+  display_name: "Run Quality Checks"
+  short_description: "Run lint, typecheck, and tests for the repo"

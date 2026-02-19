@@ -1,9 +1,10 @@
 import type { ReactElement } from 'react';
 import check from '../engine';
-import { generateMatcherError } from '../utils';
 import type { Options } from '../engine/index';
+import { generateMatcherError } from '../utils';
 
 export default function toBeAccessible(
+  this: jest.MatcherContext,
   received: ReactElement,
   options?: Options
 ) {
@@ -15,11 +16,10 @@ export default function toBeAccessible(
   const violations = check(received, {
     ...jestGlobalConfigs,
     ...options,
-    returnViolations: true, // this enforces returnViolations to always be true & must be set last
+    returnViolations: true,
   });
 
   if (violations.length) {
-    // @ts-ignore
     const message = generateMatcherError(violations, this.isNot);
     return {
       pass: false,
