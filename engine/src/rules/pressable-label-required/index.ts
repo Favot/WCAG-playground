@@ -1,7 +1,7 @@
-import { Text } from 'react-native';
-import { isPressable } from '../../helpers';
-import type { Rule } from '../../types';
-import { ReactTestInstance } from '../../types/ReactTestInstance';
+import { Text } from 'react-native'
+import { isPressable } from '../../helpers'
+import type { Rule } from '../../types'
+import { ReactTestInstance } from '../../types/ReactTestInstance'
 
 const rule: Rule = {
   id: 'pressable-label-required',
@@ -27,6 +27,7 @@ const getTextNode = (node: ReactTestInstance): ReactTestInstance | null => {
   try {
     return node.findByType(Text);
   } catch (e) {
+    console.debug(e)
     return null;
   }
 };

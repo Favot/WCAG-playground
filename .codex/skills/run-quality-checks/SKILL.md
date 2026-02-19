@@ -19,7 +19,7 @@ description: Run linting, TypeScript type checking, and tests for the wizzme-ser
 
 ## Optional actions
 
-- Format: `bunx biome check --write .`
+- Format: `bun run lint:check`
 - All tests: `bun run test:all`
 - Integration only: `bun run test:integration`
 - Coverage: `bun run test:coverage`
