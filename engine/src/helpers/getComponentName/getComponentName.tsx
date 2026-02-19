@@ -1,7 +1,7 @@
 // @ts-nocheck
-import type { ReactTestInstance } from '../../types/ReactTestInstance';
+import type { ReactTestInstance } from "../../types/ReactTestInstance";
 
-const blacklist = ['String', 'Component', 'Object'];
+const blacklist = ["String", "Component", "Object"];
 
 const extractNameFromType = (component: ReactTestInstance): string | undefined => {
   const { displayName, name } = component.type;
@@ -20,7 +20,7 @@ const getComponentName = (component: ReactTestInstance): string => {
   name = extractNameFromType(component);
 
   const children = Array.isArray(component.children) ? component.children : [];
-  if (!name && children.length > 0 && typeof children[0] !== 'string') {
+  if (!name && children.length > 0 && typeof children[0] !== "string") {
     // Some components are wrapped in Animated or Virtualized nodes,
     // and the main component is the child, not the wrapper,
     // so we inspect the child component for name, not the parent.
@@ -28,7 +28,7 @@ const getComponentName = (component: ReactTestInstance): string => {
     name = extractNameFromType(component.children[0]);
   }
 
-  return name || 'Unknown';
+  return name || "Unknown";
 };
 
 export default getComponentName;

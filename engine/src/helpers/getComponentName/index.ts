@@ -1,2 +1,2 @@
-import getComponentName from './getComponentName';
+import getComponentName from "./getComponentName";
 export default getComponentName;

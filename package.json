@@ -1,7 +1,8 @@
 {
   "name": "WCAG-playground",
-  "main": "expo-router/entry",
   "version": "0.0.1",
+  "private": true,
+  "main": "expo-router/entry",
   "scripts": {
     "dev": "expo start -c",
     "storybook": "EXPO_PUBLIC_STORYBOOK_ENABLED=true bun dev",
@@ -10,10 +11,15 @@
     "ios": "expo start -c --ios",
     "web": "expo start -c --web",
     "clean": "rm -rf .expo node_modules",
+    "lint:check": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt:check": "oxfmt --check",
+    "fmt:fix": "oxfmt",
     "test": "jest",
     "test:watch": "jest --watch",
     "ts:check": "tsc --noEmit",
-    "ts:watch": "tsc --noEmit --watch"
+    "ts:watch": "tsc --noEmit --watch",
+    "prepare": "husky"
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.0",
@@ -62,14 +68,23 @@
     "@types/jest-axe": "^3.5.9",
     "@types/react": "~19.1.10",
     "babel-loader": "^8.4.1",
+    "husky": "^9.1.7",
     "jest": "~29.7.0",
     "jest-axe": "^10.0.0",
     "jest-expo": "~54.0.17",
+    "lint-staged": "^16.2.7",
+    "oxfmt": "^0.34.0",
+    "oxlint": "^1.49.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "react-native-gesture-handler": "^2.30.0",
     "storybook": "^10.2.8",
     "typescript": "~5.9.2"
   },
-  "private": true
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "oxlint --fix",
+      "oxfmt"
+    ]
+  }
 }

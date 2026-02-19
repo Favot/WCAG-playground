@@ -1,5 +1,5 @@
-import type { ComponentType } from 'react';
-import type { AccessibilityState, ViewProps } from 'react-native';
+import type { ComponentType } from "react";
+import type { AccessibilityState, ViewProps } from "react-native";
 
 export interface SliderProps extends ViewProps {
   accessibilityRole?: string;

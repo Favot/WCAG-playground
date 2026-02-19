@@ -1,10 +1,10 @@
-import { render as renderNative } from '@testing-library/react-native';
-import React from 'react';
-import { Text, View } from 'react-native';
-import { ReactTestInstance } from '../../types/ReactTestInstance';
-import isText from './isText';
+import { render as renderNative } from "@testing-library/react-native";
+import React from "react";
+import { Text, View } from "react-native";
+import { ReactTestInstance } from "../../types/ReactTestInstance";
+import isText from "./isText";
 
-it('should identify an empty text node', () => {
+it("should identify an empty text node", () => {
   const { UNSAFE_root } = renderNative(<Text />);
 
   const matcher = (node: ReactTestInstance) => isText(node.type);
@@ -13,7 +13,7 @@ it('should identify an empty text node', () => {
   expect(matched.length).toBe(1);
 });
 
-it('should identify a non-empty text node', () => {
+it("should identify a non-empty text node", () => {
   const { UNSAFE_root } = renderNative(<Text>I am not empty!</Text>);
 
   const matcher = (node: ReactTestInstance) => isText(node.type);
@@ -22,11 +22,11 @@ it('should identify a non-empty text node', () => {
   expect(matched.length).toBe(1);
 });
 
-it('should identify a text node wrapped in a view', () => {
+it("should identify a text node wrapped in a view", () => {
   const { UNSAFE_root } = renderNative(
     <View>
       <Text>I am not empty!</Text>
-    </View>
+    </View>,
   );
 
   const matcher = (node: ReactTestInstance) => isText(node.type);
@@ -35,11 +35,11 @@ it('should identify a text node wrapped in a view', () => {
   expect(matched.length).toBe(1);
 });
 
-it('should identify a text node wrapped in another text node', () => {
+it("should identify a text node wrapped in another text node", () => {
   const { UNSAFE_root } = renderNative(
     <Text>
       <Text>I am not empty!</Text>
-    </Text>
+    </Text>,
   );
 
   const matcher = (node: ReactTestInstance) => isText(node.type);
@@ -48,12 +48,12 @@ it('should identify a text node wrapped in another text node', () => {
   expect(matched.length).toBe(2);
 });
 
-it('should identify multiple text nodes', () => {
+it("should identify multiple text nodes", () => {
   const { UNSAFE_root } = renderNative(
     <View>
       <Text>Node 1</Text>
       <Text>Node 2</Text>
-    </View>
+    </View>,
   );
 
   const matcher = (node: ReactTestInstance) => isText(node.type);

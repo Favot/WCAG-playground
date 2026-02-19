@@ -1,2 +1,2 @@
-import isReactTestInstance from './isReactTestInstance';
+import isReactTestInstance from "./isReactTestInstance";
 export default isReactTestInstance;

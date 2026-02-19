@@ -1,4 +1,4 @@
-import type { Options } from '../engine/index';
+import type { Options } from "../engine/index";
 declare global {
   namespace jest {
     interface Matchers<R> {

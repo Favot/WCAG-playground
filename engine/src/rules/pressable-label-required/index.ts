@@ -1,10 +1,10 @@
-import { Text } from 'react-native';
-import { isPressable } from '../../helpers';
-import type { Rule } from '../../types';
-import { ReactTestInstance } from '../../types/ReactTestInstance';
+import { Text } from "react-native";
+import { isPressable } from "../../helpers";
+import type { Rule } from "../../types";
+import { ReactTestInstance } from "../../types/ReactTestInstance";
 
 const rule: Rule = {
-  id: 'pressable-label-required',
+  id: "pressable-label-required",
   matcher: (node) => isPressable(node.type),
   assertion: (node) => {
     const textNode = getTextNode(node);
@@ -19,7 +19,7 @@ const rule: Rule = {
     problem:
       "This pressable has no text content, so an accessibility label can't be automatically inferred",
     solution: "Place a text component in the button or define an 'accessibilityLabel' prop",
-    link: '',
+    link: "",
   },
 };
 
@@ -27,6 +27,7 @@ const getTextNode = (node: ReactTestInstance): ReactTestInstance | null => {
   try {
     return node.findByType(Text);
   } catch (e) {
+    console.debug(e);
     return null;
   }
 };

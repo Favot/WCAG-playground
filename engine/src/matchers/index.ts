@@ -1,3 +1,3 @@
-import toBeAccessible from './toBeAccessible';
+import toBeAccessible from "./toBeAccessible";
 
 export { toBeAccessible };

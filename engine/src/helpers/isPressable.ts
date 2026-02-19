@@ -1,11 +1,11 @@
-import type { ReactTestInstanceNodeType } from '../types/ReactTestInstance';
+import type { ReactTestInstanceNodeType } from "../types/ReactTestInstance";
 import {
   TouchableHighlight,
   TouchableOpacity,
   TouchableNativeFeedback,
   TouchableWithoutFeedback,
   Pressable,
-} from 'react-native';
+} from "react-native";
 
 const isPressable = (type: ReactTestInstanceNodeType) => {
   return (

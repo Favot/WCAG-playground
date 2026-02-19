@@ -1,4 +1,4 @@
-import { ReactTestInstance } from '../../types/ReactTestInstance';
+import { ReactTestInstance } from "../../types/ReactTestInstance";
 
 const canBeDisabled = (node: ReactTestInstance) => {
   const hasDisableProp = node.props.disabled !== undefined || node.props.enabled !== undefined;
@@ -12,18 +12,16 @@ const canBeDisabled = (node: ReactTestInstance) => {
   // root component is still the one we want to validate.
   if (
     hasDisableProp &&
-    (
-      (typeof node.type === 'function' && node.type.name?.includes('Slider')) ||
+    ((typeof node.type === "function" && node.type.name?.includes("Slider")) ||
       node.props.minimumValue !== undefined ||
-      node.props.maximumValue !== undefined
-    )
+      node.props.maximumValue !== undefined)
   ) {
     return true;
   }
 
   const inTree = node.findAll(
     (_node: ReactTestInstance) =>
-      _node.props.disabled !== undefined || _node.props.enabled !== undefined
+      _node.props.disabled !== undefined || _node.props.enabled !== undefined,
   );
 
   // If this node can be disabled BUT more than one disable-able component

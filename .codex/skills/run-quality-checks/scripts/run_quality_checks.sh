@@ -26,10 +26,10 @@ if ! command -v bunx >/dev/null 2>&1; then
 fi
 
 printf "\n==> Linting (Biome)\n"
-bunx biome check .
+bun run lint:check
 
 printf "\n==> Type Checking (TypeScript)\n"
-bun run check-types
+bun run ts:check
 
 printf "\n==> Unit Tests (Bun)\n"
 bun test

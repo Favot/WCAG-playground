@@ -1,3 +1,3 @@
-import isTextInput from './isTextInput';
+import isTextInput from "./isTextInput";
 
 export default isTextInput;
