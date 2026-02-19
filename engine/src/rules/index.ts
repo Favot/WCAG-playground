@@ -9,6 +9,8 @@ import linkRoleRequired from './link-role-required';
 import linkRoleMisused from './link-role-misused';
 import noEmptyText from './no-empty-text';
 import inputLabelRequired from './input-label-required';
+import inputEditableDisabledRequired from './input-editable-disabled-required';
+import inputValueExposed from './input-value-exposed';
 
 const rules = [
   pressableRoleRequired,
@@ -22,6 +24,8 @@ const rules = [
   linkRoleMisused,
   noEmptyText,
   inputLabelRequired,
+  inputEditableDisabledRequired,
+  inputValueExposed,
 ];
 
 export default rules;
