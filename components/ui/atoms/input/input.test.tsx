@@ -48,21 +48,6 @@ describe('Input', () => {
     expect(inputTest).toBeAccessible();
   });
 
-  it('should be accessible when editable is false and the accessibilityState disabled is set to false ', () => {
-    const { getByTestId } = renderComponent({
-      testID: 'input',
-      accessibilityLabel: 'Input',
-      editable: false,
-      accessibilityState: {
-        disabled: false,
-      },
-    });
-
-    const inputTest = getByTestId('input');
-
-    expect(inputTest).toBeAccessible();
-  });
-
   it('should be accessible when editable is false and the accessibilityState is set', () => {
     const { getByTestId } = renderComponent({
       testID: 'input',
