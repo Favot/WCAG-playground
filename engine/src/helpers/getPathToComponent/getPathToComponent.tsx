@@ -1,16 +1,13 @@
 // @ts-nocheck
-import type { ReactTestInstance } from '../../types/ReactTestInstance';
-import getComponentName from '../getComponentName/getComponentName';
+import type { ReactTestInstance } from "../../types/ReactTestInstance";
+import getComponentName from "../getComponentName/getComponentName";
 
 const shouldSkipComponent = (node: ReactTestInstance) => {
-  if (typeof node.type === 'string') {
+  if (typeof node.type === "string") {
     return true;
   }
 
-  if (
-    typeof node.type === 'object' &&
-    node.type.$$typeof === Symbol.for('react.forward_ref')
-  ) {
+  if (typeof node.type === "object" && node.type.$$typeof === Symbol.for("react.forward_ref")) {
     return true;
   }
 

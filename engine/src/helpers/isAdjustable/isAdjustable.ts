@@ -1,9 +1,8 @@
-import type { ReactTestInstance } from '../../types/ReactTestInstance';
+import type { ReactTestInstance } from "../../types/ReactTestInstance";
 
 const isAdjustable = (node: ReactTestInstance) => {
   const isSliderLike = (instance: ReactTestInstance) =>
-    instance.props?.minimumValue !== undefined &&
-    instance.props?.maximumValue !== undefined;
+    instance.props?.minimumValue !== undefined && instance.props?.maximumValue !== undefined;
 
   const slidersInTree = node.findAll((_node: ReactTestInstance) => isSliderLike(_node));
 

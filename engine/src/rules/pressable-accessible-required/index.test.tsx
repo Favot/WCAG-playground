@@ -1,8 +1,8 @@
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import rule from '.';
-import TestAssets from '../../__tests__/assets';
-import check from '../../engine';
+import React from "react";
+import { Image, TouchableOpacity } from "react-native";
+import rule from ".";
+import TestAssets from "../../__tests__/assets";
+import check from "../../engine";
 
 const run = (component: React.ReactElement<any>) => {
   return check(component, { rules: [rule.id] });
@@ -10,11 +10,11 @@ const run = (component: React.ReactElement<any>) => {
 
 // To inspect these components, run the example app under "Rules -> Button Accessible"
 
-describe('if element is not hidden', () => {
+describe("if element is not hidden", () => {
   it("doesn't throw if 'accessible' prop not defined (buttons are accessible by default)", () => {
     const Button = () => (
       <TouchableOpacity>
-        <Image source={TestAssets.heart['32px']} />
+        <Image source={TestAssets.heart["32px"]} />
       </TouchableOpacity>
     );
 
@@ -24,7 +24,7 @@ describe('if element is not hidden', () => {
   it("doesn't throw if 'accessible' prop is defined and equal to true", () => {
     const Button = () => (
       <TouchableOpacity accessible={true}>
-        <Image source={TestAssets.heart['32px']} />
+        <Image source={TestAssets.heart["32px"]} />
       </TouchableOpacity>
     );
 
@@ -34,7 +34,7 @@ describe('if element is not hidden', () => {
   it("throws if 'accessible' prop is defined and equal to false", () => {
     const Button = () => (
       <TouchableOpacity accessible={false}>
-        <Image source={TestAssets.heart['32px']} />
+        <Image source={TestAssets.heart["32px"]} />
       </TouchableOpacity>
     );
 
@@ -42,16 +42,16 @@ describe('if element is not hidden', () => {
   });
 });
 
-describe('if element is hidden', () => {
+describe("if element is hidden", () => {
   const hidden = {
     accessibilityElementsHidden: true,
-    importantForAccessibility: 'no-hide-descendants' as const,
+    importantForAccessibility: "no-hide-descendants" as const,
   };
 
   it("doesn't throw if 'accessible' prop not defined (buttons are accessible by default)", () => {
     const Button = () => (
       <TouchableOpacity {...hidden}>
-        <Image source={TestAssets.heart['32px']} />
+        <Image source={TestAssets.heart["32px"]} />
       </TouchableOpacity>
     );
 
@@ -61,7 +61,7 @@ describe('if element is hidden', () => {
   it("doesn't throw if 'accessible' prop is defined and equal to true", () => {
     const Button = () => (
       <TouchableOpacity accessible={true} {...hidden}>
-        <Image source={TestAssets.heart['32px']} />
+        <Image source={TestAssets.heart["32px"]} />
       </TouchableOpacity>
     );
 
@@ -71,7 +71,7 @@ describe('if element is hidden', () => {
   it("doesn't throw if 'accessible' prop is defined and equal to false", () => {
     const Button = () => (
       <TouchableOpacity accessible={false} {...hidden}>
-        <Image source={TestAssets.heart['32px']} />
+        <Image source={TestAssets.heart["32px"]} />
       </TouchableOpacity>
     );
 

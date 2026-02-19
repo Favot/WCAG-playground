@@ -1,15 +1,14 @@
-import type { Rule } from '../../types';
-import { isAdjustable } from '../../helpers';
+import type { Rule } from "../../types";
+import { isAdjustable } from "../../helpers";
 
 const rule: Rule = {
-  id: 'adjustable-role-required',
+  id: "adjustable-role-required",
   matcher: (node) => isAdjustable(node),
-  assertion: (node) => node.props.accessibilityRole === 'adjustable',
+  assertion: (node) => node.props.accessibilityRole === "adjustable",
   help: {
-    problem:
-      "This component has an adjustable value but the user wasn't informed of this",
+    problem: "This component has an adjustable value but the user wasn't informed of this",
     solution: "Set the 'accessibilityRole' prop to 'adjustable'",
-    link: '',
+    link: "",
   },
 };
 

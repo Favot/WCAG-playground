@@ -1,7 +1,7 @@
-import Slider from '@react-native-community/slider';
-import React from 'react';
-import rule from '.';
-import check from '../../engine';
+import Slider from "@react-native-community/slider";
+import React from "react";
+import rule from ".";
+import check from "../../engine";
 
 const run = (component: React.ReactElement<any>) => {
   return check(component, { rules: [rule.id] });

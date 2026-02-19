@@ -1,5 +1,5 @@
-import type { RuleId } from './types/Rule';
-import type Violation from './types/Violation';
+import type { RuleId } from "./types/Rule";
+import type Violation from "./types/Violation";
 
 declare global {
   var __A11Y_RULES__: RuleId[] | undefined;

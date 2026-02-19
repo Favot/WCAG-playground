@@ -1,7 +1,7 @@
-import Slider from '@react-native-community/slider';
-import React from 'react';
-import rule from '.';
-import check from '../../engine';
+import Slider from "@react-native-community/slider";
+import React from "react";
+import rule from ".";
+import check from "../../engine";
 
 const run = (component: React.ReactElement<any>) => {
   return check(component, { rules: [rule.id] });
@@ -16,7 +16,7 @@ it("throws if 'accessibilityRole' prop not defined", () => {
 
 it("throws if 'accessibilityRole' prop has a value other than 'adjustable'", () => {
   const SliderWrapper = () => (
-    <Slider minimumValue={1} maximumValue={10} accessibilityRole={'button'} />
+    <Slider minimumValue={1} maximumValue={10} accessibilityRole={"button"} />
   );
 
   expect(() => run(<SliderWrapper />)).toThrow(rule.help.problem);
@@ -24,7 +24,7 @@ it("throws if 'accessibilityRole' prop has a value other than 'adjustable'", () 
 
 it("doesn't throw if 'accessibilityRole' prop has the value 'adjustable'", () => {
   const SliderWrapper = () => (
-    <Slider minimumValue={1} maximumValue={10} accessibilityRole={'adjustable'} />
+    <Slider minimumValue={1} maximumValue={10} accessibilityRole={"adjustable"} />
   );
 
   expect(() => run(<SliderWrapper />)).not.toThrow(rule.help.problem);

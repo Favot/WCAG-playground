@@ -1,12 +1,12 @@
-import type { ReactElement } from 'react';
-import check from '../engine';
-import type { Options } from '../engine/index';
-import { generateMatcherError } from '../utils';
+import type { ReactElement } from "react";
+import check from "../engine";
+import type { Options } from "../engine/index";
+import { generateMatcherError } from "../utils";
 
 export default function toBeAccessible(
   this: jest.MatcherContext,
   received: ReactElement,
-  options?: Options
+  options?: Options,
 ) {
   const jestGlobalConfigs = {
     rules: global.__A11Y_RULES__,
@@ -30,7 +30,7 @@ export default function toBeAccessible(
   return {
     pass: true,
     message() {
-      return 'Component is accessible.\nDoes it make sense to test a component for NOT being accessible?';
+      return "Component is accessible.\nDoes it make sense to test a component for NOT being accessible?";
     },
   };
 }

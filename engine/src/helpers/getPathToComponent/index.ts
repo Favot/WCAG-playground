@@ -1,2 +1,2 @@
-import getPathToComponent from './getPathToComponent';
+import getPathToComponent from "./getPathToComponent";
 export default getPathToComponent;

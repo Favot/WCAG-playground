@@ -1,7 +1,7 @@
-import { render as renderNative } from '@testing-library/react-native';
-import React from 'react';
-import { View } from 'react-native';
-import type { ReactTestInstance } from '../../types/ReactTestInstance';
+import { render as renderNative } from "@testing-library/react-native";
+import React from "react";
+import { View } from "react-native";
+import type { ReactTestInstance } from "../../types/ReactTestInstance";
 
 let testInstancePrototype: object | null = null;
 
@@ -19,7 +19,7 @@ export default function isReactTestInstance(candiate: unknown): candiate is Reac
   ensureTestInstancePrototype();
   return (
     !!candiate &&
-    typeof candiate === 'object' &&
+    typeof candiate === "object" &&
     Object.getPrototypeOf(candiate) === testInstancePrototype
   );
 }

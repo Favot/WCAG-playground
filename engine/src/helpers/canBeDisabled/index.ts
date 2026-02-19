@@ -1,2 +1,2 @@
-import canBeDisabled from './canBeDisabled';
+import canBeDisabled from "./canBeDisabled";
 export default canBeDisabled;

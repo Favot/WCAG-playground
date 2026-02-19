@@ -1,2 +1,2 @@
-import isText from './isText';
+import isText from "./isText";
 export default isText;

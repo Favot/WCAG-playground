@@ -1,20 +1,20 @@
-import Slider from '@react-native-community/slider';
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import rule from '.';
-import TestAssets from '../../__tests__/assets';
-import check from '../../engine';
+import Slider from "@react-native-community/slider";
+import React from "react";
+import { Image, TouchableOpacity } from "react-native";
+import rule from ".";
+import TestAssets from "../../__tests__/assets";
+import check from "../../engine";
 
 const run = (component: React.ReactElement<any>) => {
   return check(component, { rules: [rule.id] });
 };
 
-describe('buttons', () => {
-  describe('if the disabled prop is not defined', () => {
+describe("buttons", () => {
+  describe("if the disabled prop is not defined", () => {
     it("throws if 'accessibilityState' prop not defined", () => {
       const Button = () => (
         <TouchableOpacity>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -24,7 +24,7 @@ describe('buttons', () => {
     it("throws if 'accessibilityState' prop equals empty object'", () => {
       const Button = () => (
         <TouchableOpacity accessibilityState={{}}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -34,7 +34,7 @@ describe('buttons', () => {
     it("throws if 'accessibilityState' prop equals an object that doesn't contain 'disabled' key", () => {
       const Button = () => (
         <TouchableOpacity accessibilityState={{ expanded: true }}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -42,11 +42,11 @@ describe('buttons', () => {
     });
   });
 
-  describe('if the disabled prop is defined', () => {
+  describe("if the disabled prop is defined", () => {
     it("throws if 'accessibilityState' prop not defined", () => {
       const Button = () => (
         <TouchableOpacity disabled={false}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -56,7 +56,7 @@ describe('buttons', () => {
     it("throws if 'accessibilityState' prop equals empty object'", () => {
       const Button = () => (
         <TouchableOpacity disabled={false} accessibilityState={{}}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -66,7 +66,7 @@ describe('buttons', () => {
     it("throws if 'accessibilityState' prop equals an object that doesn't contain 'disabled' key", () => {
       const Button = () => (
         <TouchableOpacity disabled={false} accessibilityState={{ expanded: true }}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -76,7 +76,7 @@ describe('buttons', () => {
     it("doesn't throw if 'accessibilityState' equals an object that contains the 'disabled = true' key-value pair", () => {
       const Button = () => (
         <TouchableOpacity disabled={false} accessibilityState={{ disabled: true }}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -86,7 +86,7 @@ describe('buttons', () => {
     it("doesn't throw if 'accessibilityState' equals an object that contains the 'disabled = false' key-value pair", () => {
       const Button = () => (
         <TouchableOpacity disabled={false} accessibilityState={{ disabled: false }}>
-          <Image source={TestAssets.heart['32px']} />
+          <Image source={TestAssets.heart["32px"]} />
         </TouchableOpacity>
       );
 
@@ -95,8 +95,8 @@ describe('buttons', () => {
   });
 });
 
-describe('sliders', () => {
-  describe('if disabled prop is defined', () => {
+describe("sliders", () => {
+  describe("if disabled prop is defined", () => {
     it("doesn't throw if 'accessibilityState' prop not defined", () => {
       const Wrapper = () => <Slider disabled />;
       expect(() => run(<Wrapper />)).not.toThrow(rule.help.problem);

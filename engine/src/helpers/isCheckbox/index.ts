@@ -1,2 +1,2 @@
-import isCheckbox from './isCheckbox';
+import isCheckbox from "./isCheckbox";
 export default isCheckbox;

@@ -1,2 +1,2 @@
-export * from './generateMatcherError';
-export * from './generateCheckError';
+export * from "./generateMatcherError";
+export * from "./generateCheckError";

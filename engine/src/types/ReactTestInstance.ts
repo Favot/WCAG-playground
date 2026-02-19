@@ -1,17 +1,17 @@
-import type { ElementType } from 'react';
+import type { ElementType } from "react";
 
 /**
  * React Native host component names that may appear as node.type when it's a string.
  * React's ElementType string union only includes DOM intrinsics; RN uses different names.
  */
 export type ReactNativeHostType =
-  | 'TextInput'
-  | 'View'
-  | 'Text'
-  | 'Image'
-  | 'ScrollView'
-  | 'Switch'
-  | 'Slider';
+  | "TextInput"
+  | "View"
+  | "Text"
+  | "Image"
+  | "ScrollView"
+  | "Switch"
+  | "Slider";
 
 /** Type of node.type: React's ElementType plus RN host component names. */
 export type ReactTestInstanceNodeType = ElementType<any> | ReactNativeHostType;
@@ -34,11 +34,11 @@ export interface ReactTestInstance {
   findByProps: (props: Record<string, any>) => ReactTestInstance;
   findAll: (
     predicate: (node: ReactTestInstance) => boolean,
-    options?: { deep: boolean }
+    options?: { deep: boolean },
   ) => ReactTestInstance[];
   findAllByType: (
     type: ReactTestInstanceNodeType,
-    options?: { deep: boolean }
+    options?: { deep: boolean },
   ) => ReactTestInstance[];
   findAllByProps: (props: Record<string, any>, options?: { deep: boolean }) => ReactTestInstance[];
 }

@@ -1,8 +1,8 @@
-import type { Rule } from '../../types';
-import { isAdjustable } from '../../helpers';
+import type { Rule } from "../../types";
+import { isAdjustable } from "../../helpers";
 
 const rule: Rule = {
-  id: 'adjustable-value-required',
+  id: "adjustable-value-required",
   matcher: (node) => isAdjustable(node),
   assertion: (node) => {
     return (
@@ -14,9 +14,8 @@ const rule: Rule = {
   help: {
     problem:
       "This component has an adjustable value but the user wasn't informed of its min, max, and current value",
-    solution:
-      "Set the 'accessibilityValue' prop to an object: { min: ?, max: ?, now: ?}",
-    link: '',
+    solution: "Set the 'accessibilityValue' prop to an object: { min: ?, max: ?, now: ?}",
+    link: "",
   },
 };
 

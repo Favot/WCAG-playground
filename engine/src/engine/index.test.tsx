@@ -1,21 +1,21 @@
-import { render } from '@testing-library/react-native';
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
-import check from '.';
-import Icons from '../__tests__/assets';
+import { render } from "@testing-library/react-native";
+import React from "react";
+import { Image, TouchableOpacity } from "react-native";
+import check from ".";
+import Icons from "../__tests__/assets";
 
 const Button = () => (
   <TouchableOpacity accessible={false}>
-    <Image source={Icons.filledHeart['32px']} />
+    <Image source={Icons.filledHeart["32px"]} />
   </TouchableOpacity>
 );
 
-it('should contain accessibility errors', () => {
+it("should contain accessibility errors", () => {
   // expect(() => check(<Button />)).not.toThrow();
   expect(<Button />).not.toBeAccessible();
 });
 
-it('should support test instances', () => {
+it("should support test instances", () => {
   const { UNSAFE_getByType } = render(<Button />);
   const button = UNSAFE_getByType(TouchableOpacity);
 

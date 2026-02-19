@@ -1,8 +1,8 @@
-import { isText } from '../../helpers';
-import type { Rule } from '../../types';
+import { isText } from "../../helpers";
+import type { Rule } from "../../types";
 
 const rule: Rule = {
-  id: 'no-empty-text',
+  id: "no-empty-text",
   matcher: (node) => isText(node.type),
   assertion: (node) => {
     const containsText = !!node?.props?.children;
@@ -10,8 +10,8 @@ const rule: Rule = {
   },
   help: {
     problem: "This text node doesn't contain text and so no accessibility label can be inferred",
-    solution: 'Add text content or prevent this component from rendering if it has no content',
-    link: '',
+    solution: "Add text content or prevent this component from rendering if it has no content",
+    link: "",
   },
 };
 

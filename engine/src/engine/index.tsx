@@ -1,16 +1,16 @@
-import { render as renderNative } from '@testing-library/react-native';
-import type React from 'react';
-import { getPathToComponent, isHidden, isReactTestInstance } from '../helpers';
-import allRules from '../rules';
-import type { Rule, Violation } from '../types';
-import { ReactTestInstance } from '../types/ReactTestInstance';
-import { RuleId } from '../types/Rule';
-import { generateCheckError } from '../utils';
+import { render as renderNative } from "@testing-library/react-native";
+import type React from "react";
+import { getPathToComponent, isHidden, isReactTestInstance } from "../helpers";
+import allRules from "../rules";
+import type { Rule, Violation } from "../types";
+import { ReactTestInstance } from "../types/ReactTestInstance";
+import { RuleId } from "../types/Rule";
+import { generateCheckError } from "../utils";
 
 export class AccessibilityError extends Error {
-  constructor(message = '') {
+  constructor(message = "") {
     super(message);
-    this.name = 'AccessibilityError';
+    this.name = "AccessibilityError";
   }
 }
 
@@ -25,7 +25,7 @@ export type Options = {
 
 const engine = (
   treeOrTestInstance: React.ReactElement<any> | ReactTestInstance,
-  options?: Options
+  options?: Options,
 ) => {
   let testInstance = isReactTestInstance(treeOrTestInstance)
     ? treeOrTestInstance

@@ -1,2 +1,2 @@
-import isAdjustable from './isAdjustable';
+import isAdjustable from "./isAdjustable";
 export default isAdjustable;
